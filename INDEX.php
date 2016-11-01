@@ -20,7 +20,7 @@ Id: 000452052
 		<div id="headerText" class="col-md-12 col-sm-12 padding-image" style="height: 250px">
 			<img class="titleBackground" height="250px" width="100%" src="Water2.jpg"/>
 			<img class="titleImage" height="200px" width="300px" src="myElephant.gif"/>
-			<h1 class="titleText">Welcome to Travel Experts</h1>
+			<h1 class="titleText">Welcome to Travel Experts!!</h1>
 			
 			<p id="float" style="position:absolute; left: 10px; top: 100px"><img src="Shark.gif"/></p>
 
