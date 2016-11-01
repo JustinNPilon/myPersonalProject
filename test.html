@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>test</title>
+</head>
+
+<body>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;"></canvas><br/>
+	
+<script>
+
+// Your MATHEMATICS BEGINS
+
+var xx1 = 100;
+var yy1 = 300;
+var xx2 = 350;
+var yy2 = 100;
+
+var r = 300;
+
+function X(n) { return (n);}
+function Y(n) { return (myCanvas.height-n);}
+
+function curveColor(x1,y1,x2,y2)
+{
+	if ((y1 > y2) && (x1 < x2))
+	{
+		return "red";
+	}
+	if ((y1 < y2) && (x1 < x2))
+	{
+		return "blue";
+	}
+	if ((y1 > y2) && (x1 > x2))
+	{
+		return "green";
+	}
+	if ((y1 < y2) && (x1 > x2))
+	{
+		return "yellow";
+	}
+}
+
+function Radcoef(n,x1,y1,x2,y2)
+{
+	if ((y1 > y2) && (x1 < x2))
+	{
+		return ((n-1)*Math.PI);
+	}
+	if ((y1 < y2) && (x1 < x2))
+	{
+		return ((n)*Math.PI);
+	}
+	if ((y1 > y2) && (x1 > x2))
+	{
+		return ((n)*Math.PI);
+	}
+	if ((y1 < y2) && (x1 > x2))
+	{
+		return ((n-1)*Math.PI);
+	}
+}
+
+function lineDist(x1,y1,x2,y2) { return Math.sqrt(Math.pow((x1 - x2),2) + Math.pow((y1 - y2),2));}
+function midX(x1,y1,x2,y2) { return ((x1 + x2)/2);}
+function midY(x1,y1,x2,y2) { return ((y1 + y2)/2);}
+function highSchoolTrig(x1,y1,x2,y2) { return Math.acos((Math.pow(r,2) + Math.pow(r,2) - Math.pow(lineDist(x1,y1,x2,y2),2))/(2*r*r));}
+function triangleMidLineDist(x1,y1,x2,y2) { return (r*Math.cos(highSchoolTrig(x1,y1,x2,y2)/2));}
+function Slope(x1,y1,x2,y2) { return ((y2 - y1)/(x2 - x1));}
+function NrSlope(x1,y1,x2,y2) { return (-1/Slope(x1,y1,x2,y2));}
+function SQRTtan(x1,y1,x2,y2) { return (Math.sqrt(1 + Math.pow(NrSlope(x1,y1,x2,y2),2)));}
+function originX(x1,y1,x2,y2) { return (midX(x1,y1,x2,y2) + (triangleMidLineDist(x1,y1,x2,y2)/SQRTtan(x1,y1,x2,y2)));}
+function originY(x1,y1,x2,y2) { return (midY(x1,y1,x2,y2) + ((triangleMidLineDist(x1,y1,x2,y2)*NrSlope(x1,y1,x2,y2))/SQRTtan(x1,y1,x2,y2)));}
+
+function NewPointX(x1,y1,x2,y2)
+{
+	if ((y1 > y2) && (x1 < x2))
+	{
+		return (originX(x1,y1,x2,y2)-r);
+	}
+	if ((y1 < y2) && (x1 < x2))
+	{
+		return (originX(x1,y1,x2,y2)+r);
+	}
+	if ((y1 > y2) && (x1 > x2))
+	{
+		return (originX(x1,y1,x2,y2)+r);
+	}
+	if ((y1 < y2) && (x1 > x2))
+	{
+		return (originX(x1,y1,x2,y2)-r);
+	}
+}
+
+function trueFalse(x1,y1,x2,y2)
+{
+	if ((y1 > y2) && (x1 < x2))
+	{
+		return false;
+	}
+	if ((y1 < y2) && (x1 < x2))
+	{
+		return true;
+	}
+	if ((y1 > y2) && (x1 > x2))
+	{
+		return false;
+	}
+	if ((y1 < y2) && (x1 > x2))
+	{
+		return true;
+	}
+}
+
+function NewPointY(x1,y1,x2,y2){ return (originY(x1,y1,x2,y2));}
+function firstRad(x1,y1,x2,y2) { return highSchoolTrig(NewPointX(x1,y1,x2,y2),NewPointY(x1,y1,x2,y2),x1,y1);}
+function secondRad(x1,y1,x2,y2) { return highSchoolTrig(NewPointX(x1,y1,x2,y2),NewPointY(x1,y1,x2,y2),x2,y2);}
+document.write("xx1 = "+ X(xx1) +"<br/>");
+document.write("yy1 = "+ Y(yy1) +"<br/>");
+document.write("xx2 = "+ X(xx2) +"<br/>");
+document.write("yy2 = "+ Y(yy2) +"<br/>");
+document.write("lineDist = "+ lineDist(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("midX = "+ midX(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("midY = "+ midY(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("highSchoolTrig = "+ highSchoolTrig(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("triangleMidLineDist = "+ triangleMidLineDist(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("Slope = "+ Slope(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("NrSlope = "+ NrSlope(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("SQRTtan = "+ SQRTtan(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("originX = "+ originX(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("originY = "+ originY(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("NewPointX = "+ NewPointX(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("NewPointY = "+ NewPointY(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("firstRad = "+ firstRad(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+document.write("secondRad = "+ secondRad(X(xx1),Y(yy1),X(xx2),Y(yy2)) +"<br/>");
+
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+
+/*Point 1*/
+ctx.beginPath();
+ctx.arc(xx1,yy1,1,0,2*Math.PI);
+ctx.stroke();
+
+/*Point 2*/
+ctx.beginPath();
+ctx.arc(xx2,yy2,1,0,2*Math.PI);
+ctx.stroke();
+
+/*Midpoint*/
+//ctx.beginPath();
+//ctx.arc(midX(xx1,yy1,xx2,yy2),midY(xx1,yy1,xx2,yy2),1,0,2*Math.PI);
+//ctx.stroke();
+
+/*Test Big Circle*/
+ctx.strokeStyle = curveColor(xx1,yy1,xx2,yy2);
+ctx.beginPath();
+ctx.arc(originX(xx1,yy1,xx2,yy2),originY(xx1,yy1,xx2,yy2),r,Radcoef((firstRad(xx1,yy1,xx2,yy2)/Math.PI),xx1,yy1,xx2,yy2),Radcoef((secondRad(xx1,yy1,xx2,yy2)/Math.PI),xx1,yy1,xx2,yy2),trueFalse(xx1,yy1,xx2,yy2));
+ctx.stroke();
+
+
+// Your MATHEMATICS ENDS
+
+</script>
+
+</body>
+</html>

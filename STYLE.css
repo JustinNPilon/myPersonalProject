@@ -1,0 +1,176 @@
+/*
+Name: Justin Pilon
+Id: 000452052
+*/
+
+
+#SubPicture {
+	cursor: url("pineapple.png"),crosshair;
+	padding: 0px;
+}
+
+#FlowerPictureOne {
+	cursor: url("pineapple.png"),crosshair;
+	padding: 0px;
+}
+
+#FlowerPictureTwo {
+	cursor: url("pineapple.png"),crosshair;
+	padding: 0px;
+}
+
+#FlowerPictureThree {
+	cursor: url("pineapple.png"),crosshair;
+	padding: 0px;
+}
+
+#WinePicture {
+	cursor: url("pineapple.png"),crosshair;
+	padding: 0px;
+}
+
+#PierPictureTwo {
+	cursor: url("pineapple.png"),crosshair;
+	padding: 0px;
+}
+
+canvas {
+	width: 100%;
+	height: auto;
+}
+
+.titleBackground {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.titleImage {
+	position: absolute;
+	top: 0px;
+	left: 5px;
+}
+
+.titleText {
+	position: absolute;
+	top: 30px;
+	left: 300px;
+}
+
+.padding-image {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+input {
+	background-color: #607d8b;
+	color: #ffff00;
+}
+
+textarea {
+	background-color: #607d8b;
+	color: #ffff00;
+}
+
+.indexLinks {
+	border: 5px solid #1de9b6;
+	background-color: #64ffda;
+	border-radius: 20px;
+}
+
+.buttonYellow {
+	background-color: #ffff00;
+	color: #000000;
+	font-family: "Comic Sans MS";
+	border: 1px solid #00e676;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+.buttonBlue {
+	background-color: #a7ffeb;
+	color: #000000;
+	font-family: "Comic Sans MS";
+	border: 1px solid #00e676;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+p {
+	color: #ffff00;
+	font-family: "Comic Sans MS";
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #00bfa5}
+
+
+table {
+	border-collapse: collapse;
+    width: 100%;
+	text-align: left;
+	color: #a7ffeb;
+	font-family: "Comic Sans MS";
+}
+
+
+#elliesThoughtsContact:hover {
+	content:url(myElephant1.gif);
+}
+
+#elliesThoughtsRegister:hover {
+	content:url(myElephant2.gif);
+}
+
+#headerText {
+	text-align: left;
+	color: #00c853;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: #ffff00;
+	font-family: "Comic Sans Ms";
+	font-weight: bold
+}
+
+#copyright {
+	background-color: #00bfa5;
+	color: #ffff00;
+	font-family: "Comic Sans MS";
+}
+
+.descriptions {
+	color: #000000;
+	font-family: "Comic Sans MS";
+}
+
+.pictures {
+	text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffff00;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #263238;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	font-family: "Comic Sans MS";
+}
+
+li a:hover {
+    background-color: #a7ffeb;
+}
